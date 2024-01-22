@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Digitalflake</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <style>
+        body {
+            display: flex;
+            width: 1727px;
+            height: 1117px;
+            overflow: hidden; 
+            margin: 0;
+        }
+        header {
+            width: 100%;
+            height: 75px;
+            background-color:rgba(102, 38, 113, 1);
+            text-align: center; 
+            color: white;
+            font-size: larger;
+        }
+        .logo-container {
+        position: relative;
+        right: 760px;
+        }
+        .logo-container img {
+        width: 100px;
+        height: auto;
+        }   
+        .left-panel {
+            position: absolute;
+            left: 0;
+            width: 450px;
+            height: 100%;
+            margin: 0;
+            background-color:rgba(244, 244, 244, 1);
+        }
+        #home {
+            position: absolute;
+            top: 30px;
+            height: 59px;
+            width: 448px; 
+            left: 2px; 
+            border: 2px solid transparent; 
+            text-align: left; 
+            padding-left: 20px; 
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #home h5 {
+            color: black;
+            padding-left: 20px;
+        }
+        #category {
+            position: absolute; 
+            top: 90px; 
+            height: 59px; 
+            width: 448px; 
+            left: 2px; 
+            border: 2px solid transparent; 
+            text-align: left; 
+            padding-left: 20px; 
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #category h5 {
+            color: black;
+            padding-left: 20px;
+        }
+        #products {
+            position: absolute; 
+            top: 150px; 
+            height: 59px; 
+            width: 448px; 
+            left: 2px; 
+            border: 2px solid transparent; 
+            text-align: left; 
+            padding-left: 20px; 
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #products h5 {
+            color: black;
+            padding-left: 20px;
+        }
+        .right-panel {
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+        }
+        .right-panel > div {
+        margin-top: 100px;
+        margin-left: 320px;
+        }
+        .right-panel img {
+        width: 250px;
+        }   
+        .right-panel h3 {
+        color: black;
+        padding-top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://digitalflake.com/wp-content/uploads/2023/04/DF_logo-transparent2.png" alt="Digitalflake Logo">
+        </div>
+        <div class="left-panel">
+            <div id='home'>
+                <h5>Home </h5>
+            </div>
+            <div id='category' >
+                <h5 >Category</h5>
+            </div>
+            <div id='products'>
+                <h5>Products</h5>
+            </div>
+        </div> 
+        <div class="right-panel">
+            <div>
+                <img src="https://digitalflake.com/wp-content/uploads/2023/04/DF_logo-transparent2.png">
+                <div>
+                    <h3>Welcome to Digitalflake Admin</h3>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="index.js"></script>   
+</body>
+</html>
