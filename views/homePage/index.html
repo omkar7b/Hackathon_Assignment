@@ -88,6 +88,20 @@
             color: black;
             padding-left: 20px;
         }
+        button {
+            padding: 10px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e0e0e0; /* Adjust the color as needed */
+        }
+
+        button h5 {
+            margin: 0;
+        }
         .right-panel {
             display: flex;
             justify-content: center;
@@ -113,15 +127,15 @@
             <img src="https://digitalflake.com/wp-content/uploads/2023/04/DF_logo-transparent2.png" alt="Digitalflake Logo">
         </div>
         <div class="left-panel">
-            <div id='home'>
-                <h5>Home </h5>
-            </div>
-            <div id='category' >
-                <h5 >Category</h5>
-            </div>
-            <div id='products'>
+            <button id='home'>
+                <h5>Home</h5>
+            </button>
+            <button id='category'>
+                <h5>Category</h5>
+            </button>
+            <button id='products'>
                 <h5>Products</h5>
-            </div>
+            </button>
         </div> 
         <div class="right-panel">
             <div>
@@ -132,6 +146,8 @@
             </div>
         </div>
     </header>
-    <script src="index.js"></script>   
+    <script src="index.js">
+        
+    </script>   
 </body>
 </html>
