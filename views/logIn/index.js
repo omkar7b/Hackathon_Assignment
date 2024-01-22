@@ -1,29 +1,27 @@
-async function signUp(event){
+async function logIn(event) {
     try {
-        event.preventDefault();
-
+        event.preventDefault()
+        console.log('clicked');
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        let newUser = {
+        const user = {
             email: email,
             password: password
         }
 
-        let response = await axios.post('http://localhost:3000/user/signup', newUser);
-        console.log(response)
-        if(response.data.success===true){
-        alert(response.data.message)
+        const response = await axios.post('http://localhost:3000/user/login', user);
+        console.log(response);
+        if(response.data.success === true){
+            alert(response.data.message);
         }
-
     }
-    catch(error) {
-        console.log(error.response.data);
+    catch (error) {
+        console.log(error);
         showError(error);
-    };
-};
-    
-    
+    }
+}
+
 function showError(error) {
     const errorEle = document.getElementById('error');
     errorEle.innerHTML = error.response.data.message;

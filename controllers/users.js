@@ -1,7 +1,7 @@
 const User = require('../models/users');
 const bcrypt = require('bcrypt');
 
-exports.signUp = async (req,res,next) => {
+exports.signUp = async (req ,res , next) => {
     try {
         console.log('received')
         const { email, password } = req.body;
@@ -31,5 +31,42 @@ exports.signUp = async (req,res,next) => {
     catch(error) {
         console.log(error)
         res.status(500).json({error: 'Internal Server Error'})
+    }
+};
+
+exports.logIn = async (req, res, next) => {
+    try {
+        console.log('called')
+        const { email, password } = req.body;
+
+        console.log(email)
+        if(!email || !password){
+            res.status(400).json({message: 'Bad Request'});
+        }
+        
+        const user = await User.findAll({where: {email: email}})
+        
+        if(!user){
+            res.status(404).json({message: 'User Not Found'});
+        }
+
+        if(user.length>0){
+            bcrypt.compare(password, user[0].password, (error, result) => {
+                if(error) {
+                    console.log(error);
+                }
+                else if(result==true){
+                    res.status(200).json({message: 'User Logged in Successfully', success:true})
+                    console.log('successful')
+                }
+                else {
+                    res.status(401).json({success:false, message:'Incorrect Password or Email'});
+                };
+            })
+        }
+    }
+    catch(error) {
+        res.status(500).json({success: false, message: 'Internal Server Error'});
+        console.log(error)
     }
 }
