@@ -5,7 +5,7 @@ const User = sequelize.define('users', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncreament: true
+        autoIncrement: true
     },
     email: {
         type: Sequelize.STRING,
@@ -17,3 +17,5 @@ const User = sequelize.define('users', {
         allowNull: false,
     }
 });
+
+module.exports = User;

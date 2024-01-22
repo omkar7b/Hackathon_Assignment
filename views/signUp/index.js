@@ -11,7 +11,8 @@ async function signUp(event){
         }
 
         let response = await axios.post('http://localhost:3000/user/signup', newUser);
-        if(response.data.status===200){
+        console.log(response)
+        if(response.data.success===true){
         alert(response.data.message)
         }
 
@@ -19,8 +20,8 @@ async function signUp(event){
     catch(error) {
             console.log(error.response.data);
             showError(error);
-        };
     };
+};
     
     
 function showError(error) {
