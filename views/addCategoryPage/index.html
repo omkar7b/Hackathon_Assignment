@@ -130,6 +130,60 @@
             border-radius: 5px;
             color: white;
         }
+        .back {
+            position: absolute; 
+            margin-top: 10px;
+            left: 30px; 
+            color: black;
+            font-weight: bold;
+        }
+        #newCategory {
+            width: 300px; 
+            border: 2px solid black;
+            height: 50px;
+            margin-top: 90px;
+            margin-left: 30px;
+        }
+        #description {
+            width: 300px; 
+            border: 2px solid black;
+            height: 50px;
+            margin-top: 90px;
+            margin-left: 30px;
+        }
+        #status {
+            width: 300px; 
+            border: 2px solid black;
+            height: 50px;
+            margin-top: 90px;  
+            margin-left: 30px;
+        }
+        #save {
+            position: absolute; 
+            right: 100px; 
+            bottom: 30px;
+            background-color:rgba(102, 38, 113, 1) ; 
+            width: 150px;
+            height: 40px;
+            border-radius: 15px;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            color: white;
+        }
+        #cancel {
+            position: absolute; 
+            right: 300px; 
+            bottom: 30px;
+            background-color:rgba(159, 159, 159, 0.138) ; 
+            width: 150px;
+            height: 40px;
+            border-radius: 15px;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+        }
+
     </style>
 </head>
 <body>
@@ -149,29 +203,20 @@
             </button>
         </div> 
         <div class="box">
-           <h3 style="position: absolute; margin-top: 10px;padding-left: 40px;">Category</h3>
-           <input id="filter" style="width: 400px;margin-top: 10px;" placeholder="Search...">
-           <button type="submit" id="search" style="background-color: rgba(244, 244, 244, 1);border-radius: 5px;width: 100px; height: 40px;">Search</button>
-           <button type="submit" id="addnew" style="position: absolute; right: 10px;background-color: rgba(102, 38, 113, 1);border-radius: 5px;color: white;">Add New</button>
-        
-        <div>
-            <table id="table" style="margin-top: 50px; text-align: center;width: 100%;
-            border-collapse: collapse;">
-                <thead>
-                    <tr>
-                        <th style="background-color: rgba(255, 248, 183,1);">Id</th>
-                        <th style="background-color: rgb(255, 248, 183,1);">Name</th>
-                        <th style="background-color: rgb(255, 248, 183,1);">Description</th>
-                        <th style="background-color: rgb(255, 248, 183,1);">Status</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody" class="tbody">
-                </tbody>
-            </table>
-        </div>    
+           <a href="../categoryPage/index.html" class="back"> &#8592; Add Category</a>
+            <div style="display: flex;">
+                <input id="newCategory" placeholder="Category">
+                <input id="description" placeholder="Description">
+                <select id="status" placeholder="status">
+                <option>Active</option>
+                <option>Inactive</option>
+                </select>
+            </div>
         </div>
+        <button type="submit" id="save">Save</button>
+        <button type="submit" id="cancel">Cancel</button>
     </header> 
-    <script src="./index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
