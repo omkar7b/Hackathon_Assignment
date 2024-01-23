@@ -1,5 +1,6 @@
 const User = require('../models/users');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 exports.signUp = async (req ,res , next) => {
     try {
@@ -56,7 +57,7 @@ exports.logIn = async (req, res, next) => {
                     console.log(error);
                 }
                 else if(result==true){
-                    res.status(200).json({message: 'User Logged in Successfully', success:true})
+                    res.status(200).json({message: 'User Logged in Successfully', success:true, token : generateAccessToken(user[0].id, user[0].password)})
                     console.log('successful')
                 }
                 else {
@@ -69,4 +70,8 @@ exports.logIn = async (req, res, next) => {
         res.status(500).json({success: false, message: 'Internal Server Error'});
         console.log(error)
     }
+}
+
+function generateAccessToken(id, password){
+    return jwt.sign({ userId: id, password: password }, 'secretKey');
 }

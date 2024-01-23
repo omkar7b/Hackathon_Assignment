@@ -14,6 +14,7 @@ async function logIn(event) {
         console.log(response);
         if(response.data.success === true){
             alert(response.data.message);
+            localStorage.setItem('token', response.data.token);
         }
     }
     catch (error) {
