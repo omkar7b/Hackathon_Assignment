@@ -3,7 +3,7 @@ const User = require('../models/users');
 
 const authenticate = async (req, res, next) => {
     try {
-        const token  = req.header('authorization');
+        const token  = req.header('Authorization');
         const decodedToken = jwt.verify(token, 'secretKey');
 
         const user = await User.findByPk(decodedToken.userId);
@@ -16,4 +16,4 @@ const authenticate = async (req, res, next) => {
     }
 }
 
-module.exports = authenticate;
+module.exports = { authenticate };
