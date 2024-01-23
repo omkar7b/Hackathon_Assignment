@@ -51,6 +51,9 @@
             padding-left: 20px; 
             font-weight: bold;
             cursor: pointer;
+            display: flex;
+            align-items: center; 
+            margin-right: 10px;
         }
         #home h5 {
             color: black;
@@ -68,6 +71,12 @@
             font-weight: bold;
             cursor: pointer;
             background-color: rgba(255, 248, 183, 1);
+            display: flex;
+            align-items: center; 
+            margin-right: 10px;
+            display: flex;
+            align-items: center; 
+            margin-right: 10px;
         }
         #category h5 {
             color: black;
@@ -84,6 +93,12 @@
             padding-left: 20px; 
             font-weight: bold;
             cursor: pointer;
+            display: flex;
+            align-items: center; 
+            margin-right: 10px;
+            display: flex;
+            align-items: center; 
+            margin-right: 10px;
         }
         #products h5 {
             color: black;
@@ -187,6 +202,10 @@
             text-decoration: none;
             cursor: pointer;
         }
+        #page-image {
+            height: 25px;
+            margin-left: 20px;
+        }
     </style>
 </head>
 <body>
@@ -195,14 +214,15 @@
             <img src="https://digitalflake.com/wp-content/uploads/2023/04/DF_logo-transparent2.png" alt="Digitalflake Logo">
         </div>
         <div class="left-panel">
-            <button id='home'>
-                <h5>Home</h5>
+            <button id="home">
+                <img src="../icons/home.svg" id="page-image" alt="Home Icon"><h5>Home</h5>
             </button>
+            
             <button id='category'>
-                <h5>Category</h5>
+                <img src="../icons/category.svg" id="page-image" alt="Home Icon"><h5>Category</h5>
             </button>
             <button id='products'>
-                <h5>Products</h5>
+                <img src="../icons/products.svg" id="page-image" alt="Home Icon"><h5>Products</h5>
             </button>
         </div> 
         <div class="box">
@@ -217,7 +237,7 @@
                 <thead>
                     <tr>
                         <th style="background-color: rgba(255, 248, 183,1);">Id</th>
-                        <th style="background-color: rgb(255, 248, 183,1);">Name</th>
+                        <th style="background-color: rgb(255, 248, 183,1);">Category</th>
                         <th style="background-color: rgb(255, 248, 183,1);">Description</th>
                         <th style="background-color: rgb(255, 248, 183,1);">Status</th>
                         <th style="background-color: rgb(255, 248, 183,1); color: transparent;">Edit</th>

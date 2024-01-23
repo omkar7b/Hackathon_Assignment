@@ -117,3 +117,4 @@ function showCategoriesInTable(category) {
     document.getElementById('tbody').appendChild(tr);
 }
 
+
