@@ -28,6 +28,53 @@ exports.addProduct = async (req, res, next) => {
     }
 }
 
+exports.getProduct = async (req, res, next) => {
+    try {
+        const products = await Product.findAll({where: { userId: req.user.id }});
+        console.log(products)
+        res.status(200).json({success: true, products});
+    }
+    catch (error) {
+        res.status(500).json({error: 'Internal Server Error'});
+        console.log(error);
+    }   
+}
+
+exports.editProduct = async (req, res, next) => {
+    try {
+        const editId = req.params.id;
+        const { category, description, status, price, packSize, productImage } = req.body;
+
+        console.log(editId, category);
+
+        const editProduct = await Product.findOne({ where : { id: editId, userId: req.user.id}})
+
+        await Product.update(
+            { category: category, description: description, price: price, packSize: packSize, status: status },
+            { where: { id: editId, userId: req.user.id } }
+        )
+        res.status(200).json({message: 'Category Edited Successfully', Product})
+        console.log(editProduct);
+    }
+    catch(error) {
+        console.log(error);
+        res.status(500).json({error: 'Internal Server Error'})
+    }
+}
+
+exports.deleteProduct = async (req, res, next) =>{
+    try {
+        const deleteId = req.params.id;
+        
+        await Product.destroy({ where: {id: deleteId, userId:req.user.id }});
+        res.status(200).json({success: true, message: 'Category Deleted SuccesFully'});
+    }
+    catch(error) {
+        console.log(error);
+        res.status(500).json({error: 'Internal Server Error'});
+    }
+}
+
 
 //AWS s3 for storing image => Not able to send object and formData in one request
 // function uploadToS3(data, filename) {

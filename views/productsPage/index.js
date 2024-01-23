@@ -3,28 +3,28 @@ document.getElementById('home').addEventListener('click', () => {
     window.location.href = '../homePage/index.html'
 });
 
-document.getElementById('category').addEventListener('click', () => {
-    location.reload(); 
-});
-
 //Redirect to add category page
-document.getElementById('addnew').addEventListener('click', () => {
-    window.location.href = '../addCategoryPage/index.html'
+document.getElementById('category').addEventListener('click', () => {
+    window.location.href = '../categoryPage/index.html'
 });
 
 //Redirect to add product page
+document.getElementById('addnew').addEventListener('click', () => {
+    window.location.href = '../addProductPage/index.html'
+});
+
 document.getElementById('products').addEventListener('click', () => {
-    window.location.href = '../productsPage/index.html'
+    location.reload(); 
 });
 
 const token = localStorage.getItem('token');
-async function getCategory(){
+async function getProducts(){
     try {
-        const response = await axios.get('http://localhost:3000/category/get-category', { headers: { "Authorization" : token }});
-        console.log(response.data);
-        const category = response.data.categories;
-        category.forEach(category => {
-            showCategoriesInTable(category)
+        const response = await axios.get('http://localhost:3000/product/get-product', { headers: { "Authorization" : token }});
+        console.log(response.data.products);
+        const products = response.data.products;
+        products.forEach(product => {
+            showCategoriesInTable(product)
         });
     }
     catch(error) {
@@ -32,31 +32,39 @@ async function getCategory(){
     }
 }
 
+
 window.addEventListener('DOMContentLoaded', () => {
-    getCategory();
+    getProducts();
 })
 
-function showCategoriesInTable(category) {
+function showCategoriesInTable(product) {
     let tr = document.createElement('tr');
 
     let td1 = tr.appendChild(document.createElement('td'));
     let td2 = tr.appendChild(document.createElement('td'));
     let td3 = tr.appendChild(document.createElement('td'));
     let td4 = tr.appendChild(document.createElement('td'));
+    let td5 = tr.appendChild(document.createElement('td'));
+    let td6 = tr.appendChild(document.createElement('td'));
+    let td7 = tr.appendChild(document.createElement('td'));
 
-    td1.innerHTML = category.id;
-    td2.innerHTML = category.category;
-    td3.innerHTML = category.description;
-    td4.innerHTML = category.status;
-    if(category.status === 'Active'){
-        td4.style.color = 'green';
+    td1.innerHTML = product.id;
+    td2.innerHTML = product.description;
+    td3.innerHTML = product.packSize;
+    td4.innerHTML = product.category;
+    // td6.innerHTML = product.image;
+    td5.innerHTML = product.price;
+   
+    td7.innerHTML = product.status;
+    if(product.status == 'Active'){
+        td7.style.color = 'green';
     }
     else {
-        td4.style.color = 'red';
+        td7.style.color = 'red';
     }
     
 //edit button
-    let td5 = document.createElement('td');
+    let td8 = document.createElement('td');
     let editButton = document.createElement('button');
     editButton.type = 'button';
     editButton.classList = 'edit-modal'
@@ -77,14 +85,17 @@ function showCategoriesInTable(category) {
     let edit = document.getElementById('edit');
     edit.onclick = async ( ) => {
         try {
-            const id = category.id;
+            const id = product.id;
 
-            const editedCategory = {
+            const editedProduct = {
                 category: document.getElementById('newCategory').value,
                 description: document.getElementById('description').value,
-                status: document.getElementById('status').value
+                status: document.getElementById('status').value,
+                price: document.getElementById('price').value,
+                packSize: document.getElementById('pack-size').value,
+                productImage: document.getElementById('image-edit').value
             }
-            const response = await axios.put(`http://localhost:3000/category/edit-category/${id}`, editedCategory,  { headers: { "Authorization" : token }})
+            const response = await axios.put(`http://localhost:3000/product/edit-product/${id}`, editedProduct,  { headers: { "Authorization" : token }})
             console.log(response);
             window.location.href = './index.html'
         }
@@ -103,8 +114,8 @@ function showCategoriesInTable(category) {
 
     deleteButton.onclick = async () => {
         try {
-            const id = category.id;
-            const response = await axios.delete(`http://localhost:3000/category/delete-category/${id}`,{ headers: { "Authorization" : token }})
+            const id = product.id;
+            const response = await axios.delete(`http://localhost:3000/product/delete-product/${id}`,{ headers: { "Authorization" : token }})
             console.log(response);
             document.getElementById('tbody').removeChild(tr);
         }
@@ -115,11 +126,9 @@ function showCategoriesInTable(category) {
 
     editButton.appendChild(editImage);
     deleteButton.appendChild(deleteImage);
-    td5.appendChild(editButton);
-    td5.appendChild(deleteButton);
+    td8.appendChild(editButton);
+    td8.appendChild(deleteButton);
 
-    tr.appendChild(td5);
+    tr.appendChild(td8);
     document.getElementById('tbody').appendChild(tr);
 }
-
-

@@ -24,7 +24,6 @@ exports.addCategory = async (req, res, next) => {
     };
 };
 
-
 exports.getCategory = async (req, res, next) => {
     try {
         const categories = await Category.findAll({where: { userId: req.user.id }});
