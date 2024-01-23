@@ -67,6 +67,7 @@
             padding-left: 20px; 
             font-weight: bold;
             cursor: pointer;
+            background-color: rgba(255, 248, 183, 1);
         }
         #category h5 {
             color: black;
@@ -205,12 +206,13 @@
         <div class="box">
            <a href="../categoryPage/index.html" class="back"> &#8592; Add Category</a>
             <div style="display: flex;">
-                <input id="newCategory" placeholder="Category">
-                <input id="description" placeholder="Description">
-                <select id="status" placeholder="status">
-                <option>Active</option>
-                <option>Inactive</option>
+                <input id="newCategory" placeholder="Category" required>
+                <input id="description" placeholder="Description" required>
+                <select id="status" placeholder="status" required>
+                <option style="color: green;">Active</option>
+                <option style="color: red;">Inactive</option>
                 </select>
+                <div id="error" style="padding-left: 10px; color: red;padding-top: 300px;"></div>
                 <button type="submit" id="save">Save</button>
                 <button type="submit" id="cancel">Cancel</button>
             </div>

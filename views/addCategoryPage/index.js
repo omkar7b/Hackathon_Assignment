@@ -4,7 +4,7 @@ document.getElementById('home').addEventListener('click', () => {
 });
 
 document.getElementById('category').addEventListener('click', () => {
-    location.reload(); 
+    window.location.href = '../categoryPage/index.html' 
 });
 
 //cancel button redirects to category page
@@ -31,13 +31,18 @@ save.addEventListener('click', async () => {
         const token = localStorage.getItem('token');
         const response = await axios.post('http://localhost:3000/category/add-category', newCategory, { headers: { 'Authorization' : token } })
         console.log(response);
+        window.location.href = '../categoryPage/index.html'
     }
     catch (error) {
-        console.log(error)
+        console.log(error);
+        showError(error);
     }
 });
 
-
+function showError(error){
+    const errorEle = document.getElementById('error');
+    errorEle.innerHTML = error.response.data.message;
+}
 
 
 
