@@ -10,7 +10,12 @@ document.getElementById('category').addEventListener('click', () => {
 //cancel button redirects to category page
 document.getElementById('cancel').addEventListener('click', () => {
     window.location.href = '../categoryPage/index.html'
-})
+});
+
+//Redirect to add product page
+document.getElementById('products').addEventListener('click', () => {
+    window.location.href = '../productPage/index.html'
+});
 
 
 

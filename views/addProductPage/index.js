@@ -7,11 +7,15 @@ document.getElementById('category').addEventListener('click', () => {
     window.location.href = '../categoryPage/index.html' 
 });
 
-//cancel button redirects to category page
+//cancel button redirects to products page
 document.getElementById('cancel').addEventListener('click', () => {
-    window.location.href = '../categoryPage/index.html'
+    window.location.href = '../productPage/index.html'
 })
 
+//redirect to products page
+document.getElementById('products').addEventListener('click', () => {
+    window.location.href = '../productPage/index.html'
+})
 
 
 
@@ -45,7 +49,9 @@ save.addEventListener('click', async () => {
 
         const token = localStorage.getItem('token');
         const response = await axios.post('http://localhost:3000/product/add-product',newProduct, { headers: { 'Authorization' : token, } })
+        window.location.href = '../productPage/index.html'
         console.log(response);
+        
     }
     catch (error) {
         console.log(error);

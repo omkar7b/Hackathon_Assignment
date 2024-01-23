@@ -12,6 +12,11 @@ document.getElementById('addnew').addEventListener('click', () => {
     window.location.href = '../addCategoryPage/index.html'
 });
 
+//Redirect to add product page
+document.getElementById('products').addEventListener('click', () => {
+    window.location.href = '../productPage/index.html'
+});
+
 const token = localStorage.getItem('token');
 async function getCategory(){
     try {

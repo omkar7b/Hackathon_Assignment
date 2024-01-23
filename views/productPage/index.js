@@ -1,13 +1,18 @@
+//Redirect to home page
 document.getElementById('home').addEventListener('click', () => {
-    location.reload();
+    window.location.href = '../homePage/index.html'
 });
 
-//Redirect to category Page
+//Redirect to add category page
 document.getElementById('category').addEventListener('click', () => {
     window.location.href = '../categoryPage/index.html'
 });
 
 //Redirect to add product page
+document.getElementById('addnew').addEventListener('click', () => {
+    window.location.href = '../addProductPage/index.html'
+});
+
 document.getElementById('products').addEventListener('click', () => {
-    window.location.href = '../productPage/index.html'
+    location.reload(); 
 });
