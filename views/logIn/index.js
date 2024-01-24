@@ -26,6 +26,10 @@ async function logIn(event) {
     }
 }
 
+document.getElementById('forgotpassword').addEventListener('click', () => {
+    document.getElementById('forgotpasswordmodal').style.display = 'block';
+})
+
 function showError(error) {
     const errorEle = document.getElementById('error');
     errorEle.innerHTML = error.response.data.message;
