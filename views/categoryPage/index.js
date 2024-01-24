@@ -131,3 +131,7 @@ function showCategoriesInTable(category) {
 }
 
 
+//logout button modal
+document.getElementById('user').addEventListener('click', () => {
+    window.location.href = '../homePage/index.html'
+});

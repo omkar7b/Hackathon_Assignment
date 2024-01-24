@@ -14,7 +14,7 @@ document.getElementById('cancel').addEventListener('click', () => {
 
 //Redirect to add product page
 document.getElementById('products').addEventListener('click', () => {
-    window.location.href = '../productPage/index.html'
+    window.location.href = '../productsPage/index.html'
 });
 
 
@@ -49,6 +49,11 @@ function showError(error){
     const errorEle = document.getElementById('error');
     errorEle.innerHTML = error.response.data.message;
 }
+
+//logout button modal
+document.getElementById('user').addEventListener('click', () => {
+    window.location.href = '../homePage/index.html'
+});
 
 
 

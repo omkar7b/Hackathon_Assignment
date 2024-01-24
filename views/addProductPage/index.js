@@ -57,3 +57,9 @@ save.addEventListener('click', async () => {
         console.log(error);
     }
 });
+
+
+//logout button modal
+document.getElementById('user').addEventListener('click', () => {
+    window.location.href = '../homePage/index.html'
+});

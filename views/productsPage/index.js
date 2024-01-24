@@ -107,8 +107,6 @@ function showCategoriesInTable(product) {
 //delete Button
     let deleteButton = document.createElement('button');
     deleteButton.type = 'button';
-    //deleteButton.setAttribute('data-toggle', 'modal');
-    //deleteButton.setAttribute('data-target', '#deleteProductModal');
     
     let deleteImage = document.createElement('img');
     deleteImage.src = './trash.svg'; 
@@ -144,4 +142,9 @@ function showCategoriesInTable(product) {
 
     tr.appendChild(td8);
     document.getElementById('tbody').appendChild(tr);
-}
+};
+
+//logout button modal
+document.getElementById('user').addEventListener('click', () => {
+    window.location.href = '../homePage/index.html'
+});

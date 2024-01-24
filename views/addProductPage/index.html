@@ -25,12 +25,12 @@
             font-size: larger;
         }
         .logo-container {
-        position: relative;
-        right: 760px;
+            position: relative;
+            right: 760px;
         }
         .logo-container img {
-        width: 100px;
-        height: auto;
+            width: 100px;
+            height: auto;
         }   
         .left-panel {
             position: absolute;
@@ -223,7 +223,11 @@
             color: red;
             padding-top: 300px;
         }
-        
+        #user {
+            margin-left: 1420px;
+            height: 60px;
+            fill: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -265,6 +269,9 @@
         </div>
         
     </header> 
+    <div class="user-image" style="position: absolute; margin-top: 10px;margin-left: 20px;">
+        <img id="user" src="../icons/person.svg" alt="User Logo">
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"></script>
     <script src="./index.js"></script>
 </body>
