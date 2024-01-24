@@ -27,25 +27,25 @@ async function logIn(event) {
 }
 
 document.getElementById('forgotpassword').addEventListener('click', () => {
+    console.log('clicked')
     document.getElementById('forgotpasswordmodal').style.display = 'block';
 })
 
-let resetPassword = document.getElementById('resetlink')
-resetPassword.onclick = async () => {
-    try {
-        event.preventDefault();
+// let resetPassword = document.getElementById('resetlink')
+// resetPassword.onclick = async () => {
+//     try {
 
-        const email = {
-            email: document.getElementById('emailid').value
-        }
-        console.log(email);
-        const response = await axios.post('http://localhost:3000/password/resetpassword',email)
-        console.log(response);
-    }
-    catch(error) {
-        console.log(error);
-    }
-}
+//         const email = {
+//             email: document.getElementById('emailid').value
+//         }
+//         console.log(email);
+//         const response = await axios.post('http://localhost:3000/password/resetpassword',email)
+//         console.log(response);
+//     }
+//     catch(error) {
+//         console.log(error);
+//     }
+// }
 
 
 function showError(error) {
