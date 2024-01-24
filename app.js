@@ -14,6 +14,7 @@ const CategoryProduct = require('./models/categoryProduct');
 const userRoutes = require('./routes/users');
 const categoryRoutes = require('./routes/categories');
 const productRoutes = require('./routes/products');
+const resetPasswordRoutes = require('./routes/resetPassword');
 
 
 const app = express();
@@ -25,6 +26,7 @@ app.use(cors());
 app.use('/user', userRoutes);
 app.use('/category', categoryRoutes);
 app.use('/product', productRoutes);
+app.use('/password', resetPasswordRoutes);
 
 // table relationships 
 User.hasMany(Category);

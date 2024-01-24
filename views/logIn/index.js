@@ -30,6 +30,24 @@ document.getElementById('forgotpassword').addEventListener('click', () => {
     document.getElementById('forgotpasswordmodal').style.display = 'block';
 })
 
+let resetPassword = document.getElementById('resetlink')
+resetPassword.onclick = async () => {
+    try {
+        event.preventDefault();
+
+        const email = {
+            email: document.getElementById('emailid').value
+        }
+        console.log(email);
+        const response = await axios.post('http://localhost:3000/password/resetpassword',email)
+        console.log(response);
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+
 function showError(error) {
     const errorEle = document.getElementById('error');
     errorEle.innerHTML = error.response.data.message;
