@@ -101,17 +101,25 @@ function showCategoriesInTable(category) {
     deleteImage.src = './trash.svg'; 
     deleteImage.alt = 'Delete';  
 
-    deleteButton.onclick = async () => {
-        try {
-            const id = category.id;
-            const response = await axios.delete(`http://localhost:3000/category/delete-category/${id}`,{ headers: { "Authorization" : token }})
-            console.log(response);
-            document.getElementById('tbody').removeChild(tr);
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
+    deleteButton.addEventListener('click', () => {
+        document.getElementById('deleteCategory').style.display = 'block';
+    });
+
+    document.getElementById('cancel-delete').onclick = () => {
+        location.reload();
+    };
+
+    // deleteButton.onclick = async () => {
+    //     try {
+    //         const id = category.id;
+    //         const response = await axios.delete(`http://localhost:3000/category/delete-category/${id}`,{ headers: { "Authorization" : token }})
+    //         console.log(response);
+    //         document.getElementById('tbody').removeChild(tr);
+    //     }
+    //     catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     editButton.appendChild(editImage);
     deleteButton.appendChild(deleteImage);

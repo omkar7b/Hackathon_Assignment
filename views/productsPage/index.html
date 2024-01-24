@@ -169,42 +169,42 @@
             border: 2px solid black;
             height: 50px;
             margin-top: 30px;
-            margin-left: 30px;
+            margin-left: 70px;
         }
         #description {
             width: 300px; 
             border: 2px solid black;
             height: 50px;
             margin-top: 30px;
-            margin-left: 30px;
+            margin-left: 70px;
         }
         #status {
             width: 300px; 
             border: 2px solid black;
             height: 50px;
             margin-top: 30px;  
-            margin-left: 30px;
+            margin-left: 70px;
         }
         #price {
             width: 300px; 
             border: 2px solid black;
             height: 50px;
             margin-top: 30px;  
-            margin-left: 30px; 
+            margin-left: 70px;
         }
         #pack-size {
             width: 300px; 
             border: 2px solid black;
             height: 50px;
             margin-top: 30px;  
-            margin-left: 30px; 
+            margin-left: 70px; 
         }
         #image-edit {
             width: 300px; 
             border: 2px solid black;
             height: 50px;
             margin-top: 30px;  
-            margin-left: 30px; 
+            margin-left: 70px; 
         }
         #filter {
             width: 400px;
@@ -230,6 +230,21 @@
         #edit {
             padding-top: 10px;
             width: 100px;
+            background-color: rgba(102, 38, 113, 1); 
+            color: white;
+            border-radius: 15px;
+            margin-left: 180px;
+            margin-top: 30px;
+        }
+        #cancel-delete {
+            background-color: rgba(159, 159, 159, 0.138);
+            border-radius: 15px;
+        }
+        #delete {
+            background-color: rgba(102, 38, 113, 1); 
+            color: white;
+            border-radius: 15px;
+            margin-left: 30px;
         }
     </style>
 </head>
@@ -277,9 +292,14 @@
         </div>
 
         <div class="modal" id="editmodal">
+            <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
+                <h3 style="color: black;">Edit Product</h3>
                 <span class="close" id="closeBtn">&times;</span>
-                <input id="newCategory" placeholder="Category" required>
+                <select id="newCategory" placeholder="Category">
+                    <option>Milk</option>
+                    <option>Fruits</option>
+                </select>
                 <input id="description" placeholder="Description" required>
                 <select id="status" placeholder="status" required>
                     <option style="color: green;">Active</option>
@@ -289,8 +309,28 @@
                 <input id="pack-size" placeholder="Pack Size" required>
                 <input id="image-edit" placeholder="Product Image" required>
                     <button id="edit">Edit</button>
+                </div>
             </div>
-        </div>
+        </div>    
+            <div class="modal" id="deleteProduct">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="container mt-1">
+                                <div style="display: flex;justify-content: center;margin-top: 10px;">
+                                    <img src="../icons/exclamation-triangle.svg" id="delete-image" alt="Delete Icon" style="height: 25px;"><h2 style="color: black;margin-left:30px ;">Delete</h2>
+                                </div> 
+                                <h5 style="color: rgb(117, 115, 115);">Are you sure you want to delete?</h5>
+                                <div style="display: flex;justify-content: center;margin-top: 50px;">
+                                    <button id="cancel-delete">Cancel</button>
+                                    <button id="delete">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
     </header> 
     <script src="./index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"></script>

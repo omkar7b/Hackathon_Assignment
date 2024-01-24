@@ -107,16 +107,29 @@ function showCategoriesInTable(product) {
 //delete Button
     let deleteButton = document.createElement('button');
     deleteButton.type = 'button';
+    //deleteButton.setAttribute('data-toggle', 'modal');
+    //deleteButton.setAttribute('data-target', '#deleteProductModal');
     
     let deleteImage = document.createElement('img');
     deleteImage.src = './trash.svg'; 
     deleteImage.alt = 'Delete';  
 
-    deleteButton.onclick = async () => {
+    deleteButton.addEventListener('click', () => {
+        document.getElementById('deleteProduct').style.display = 'block';
+    });
+
+    document.getElementById('cancel-delete').onclick = () => {
+        location.reload();
+    };
+
+    const deleteBtn = document.getElementById('delete');
+
+    deleteBtn.onclick = async () => {
         try {
             const id = product.id;
             const response = await axios.delete(`http://localhost:3000/product/delete-product/${id}`,{ headers: { "Authorization" : token }})
             console.log(response);
+            location.reload();
             document.getElementById('tbody').removeChild(tr);
         }
         catch (error) {

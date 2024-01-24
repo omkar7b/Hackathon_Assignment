@@ -9,12 +9,12 @@ document.getElementById('category').addEventListener('click', () => {
 
 //cancel button redirects to products page
 document.getElementById('cancel').addEventListener('click', () => {
-    window.location.href = '../productPage/index.html'
+    window.location.href = '../productsPage/index.html'
 })
 
 //redirect to products page
 document.getElementById('products').addEventListener('click', () => {
-    window.location.href = '../productPage/index.html'
+    window.location.href = '../productsPage/index.html'
 })
 
 
@@ -49,7 +49,7 @@ save.addEventListener('click', async () => {
 
         const token = localStorage.getItem('token');
         const response = await axios.post('http://localhost:3000/product/add-product',newProduct, { headers: { 'Authorization' : token, } })
-        window.location.href = '../productPage/index.html'
+        window.location.href = '../productsPage/index.html'
         console.log(response);
         
     }

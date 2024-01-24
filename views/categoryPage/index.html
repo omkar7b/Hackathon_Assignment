@@ -168,22 +168,22 @@
             width: 300px; 
             border: 2px solid black;
             height: 50px;
-            margin-top: 90px;
-            margin-left: 30px;
+            margin-top: 30px;
+            margin-left: 70px;
         }
         #description {
             width: 300px; 
             border: 2px solid black;
             height: 50px;
-            margin-top: 90px;
-            margin-left: 30px;
+            margin-top: 30px;
+            margin-left: 70px;
         }
         #status {
             width: 300px; 
             border: 2px solid black;
             height: 50px;
-            margin-top: 90px;  
-            margin-left: 30px;
+            margin-top: 30px;  
+            margin-left: 70px;
         }
         #filter {
             width: 400px;
@@ -205,6 +205,25 @@
         #page-image {
             height: 25px;
             margin-left: 20px;
+        }
+        #edit {
+            padding-top: 10px;
+            width: 100px;
+            background-color: rgba(102, 38, 113, 1); 
+            color: white;
+            border-radius: 15px;
+            margin-left: 180px;
+            margin-top: 30px;
+        }
+        #cancel-delete {
+            background-color: rgba(159, 159, 159, 0.138);
+            border-radius: 15px;
+        }
+        #delete {
+            background-color: rgba(102, 38, 113, 1); 
+            color: white;
+            border-radius: 15px;
+            margin-left: 30px;
         }
     </style>
 </head>
@@ -249,15 +268,36 @@
         </div>
 
         <div class="modal" id="editmodal">
-            <div class="modal-content">
-                <span class="close" id="closeBtn">&times;</span>
-                <input id="newCategory" placeholder="Category" required>
-                <input id="description" placeholder="Description" required>
-                <select id="status" placeholder="status" required>
-                    <option style="color: green;">Active</option>
-                    <option style="color: red;">Inactive</option>
-                </select>
-                    <button id="edit" style="padding-top: 10px;width: 100px;">Edit</button>
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <h3 style="color: black;">Edit Category</h3>
+                    <span class="close" id="closeBtn">&times;</span>
+                    <input id="newCategory" placeholder="Category" required>
+                    <input id="description" placeholder="Description" required>
+                    <select id="status" placeholder="status" required>
+                        <option style="color: green;">Active</option>
+                        <option style="color: red;">Inactive</option>
+                    </select>
+                        <button id="edit" style="padding-top: 10px;width: 100px;">Edit</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="deleteCategory">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container mt-1">
+                            <div style="display: flex;justify-content: center;margin-top: 10px;">
+                                <img src="../icons/exclamation-triangle.svg" id="delete-image" alt="Delete Icon" style="height: 25px;"><h2 style="color: black;margin-left:30px ;">Delete</h2>
+                            </div> 
+                            <h5 style="color: rgb(117, 115, 115);">Are you sure you want to delete?</h5>
+                            <div style="display: flex;justify-content: center;margin-top: 50px;">
+                                <button id="cancel-delete">Cancel</button>
+                                <button id="delete">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header> 
